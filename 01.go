@@ -325,22 +325,43 @@
 //	//fmt.Printf("The number of elements equal to the maximum (%d) is: %d\n", max, count)
 //	fmt.Println(count)
 //}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var n, c, d int
+//	fmt.Scan(&n)
+//	fmt.Scan(&c)
+//	fmt.Scan(&d)
+//
+//	for i := 1; i <= n; i++ {
+//		if i%c == 0 && i%d != 0 {
+//			fmt.Println(i)
+//			break
+//		}
+//	}
+//
+//}
 
 package main
 
 import "fmt"
 
 func main() {
-	var n, c, d int
-	fmt.Scan(&n)
-	fmt.Scan(&c)
-	fmt.Scan(&d)
+	var n int
 
-	for i := 1; i <= n; i++ {
-		if i%c == 0 && i%d != 0 {
-			fmt.Println(i)
+	for {
+		fmt.Scan(&n)
+
+		if n > 100 {
 			break
 		}
-	}
 
+		if n < 10 {
+			continue
+		}
+		fmt.Println(n)
+	}
 }
