@@ -365,24 +365,66 @@
 //		fmt.Println(n)
 //	}
 //}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var x, p, y, years int
+//
+//	fmt.Scan(&x) //сумма
+//	fmt.Scan(&p) //процент
+//	fmt.Scan(&y) //желаемая сумма
+//
+//	//result = 100 + (100 * 10 / 100)
+//
+//	for x < y {
+//		x = x + (x * p / 100)
+//		years++
+//	}
+//	fmt.Println(years)
+//
+//}
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var x, p, y, years int
 
-	fmt.Scan(&x) //сумма
-	fmt.Scan(&p) //процент
-	fmt.Scan(&y) //желаемая сумма
+	var number1, number2 int
 
-	//result = 100 + (100 * 10 / 100)
+	fmt.Scan(&number1, &number2)
 
-	for x < y {
-		x = x + (x * p / 100)
-		years++
+	var digits1, digits2, result []int
+
+	for number1 > 0 {
+		digit := number1 % 10
+		digits1 = append([]int{digit}, digits1...)
+		number1 /= 10
 	}
-	fmt.Println(years)
+	for number2 > 0 {
+		digit := number2 % 10
+		digits2 = append([]int{digit}, digits2...)
+		number2 /= 10
+	}
 
+	for _, value1 := range digits1 {
+		for _, value2 := range digits2 {
+			if value1 == value2 {
+				result = append(result, value1)
+			}
+		}
+	}
+
+	for i, value := range result {
+		if i > 0 {
+			fmt.Print(" ")
+		}
+		fmt.Print(value)
+	}
+	fmt.Println()
 }
