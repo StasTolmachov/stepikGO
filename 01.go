@@ -231,17 +231,39 @@
 //	}
 //
 //}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var a, b, sum int
+//	fmt.Scan(&a, &b)
+//
+//	for i := a; i <= b; i++ {
+//		sum += i
+//	}
+//	fmt.Println(sum)
+//}
 
 package main
 
 import "fmt"
 
 func main() {
-	var a, b, sum int
-	fmt.Scan(&a, &b)
+	var count int
+	fmt.Scan(&count)
 
-	for i := a; i <= b; i++ {
-		sum += i
+	var output int
+
+	for i := 1; i <= count; i++ {
+		var number int
+		fmt.Scan(&number)
+		if number%8 == 0 {
+			if number > 9 && number < 100 {
+				output += number
+			}
+		}
 	}
-	fmt.Println(sum)
+	fmt.Println(output)
 }
