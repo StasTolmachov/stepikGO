@@ -245,25 +245,83 @@
 //	}
 //	fmt.Println(sum)
 //}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var count int
+//	fmt.Scan(&count)
+//
+//	var output int
+//
+//	for i := 1; i <= count; i++ {
+//		var number int
+//		fmt.Scan(&number)
+//		if number%8 == 0 {
+//			if number > 9 && number < 100 {
+//				output += number
+//			}
+//		}
+//	}
+//	fmt.Println(output)
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var number, count, before int
+//	count = 0
+//	before = 1
+//	//var slice []int
+//
+//	for {
+//		fmt.Scan(&number)
+//
+//		if before == number {
+//			count++
+//		}
+//
+//		if before < number {
+//			count = 1
+//		}
+//
+//		before = number
+//
+//		if number == 0 {
+//			break
+//		}
+//	}
+//	fmt.Println(count)
+//}
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var count int
-	fmt.Scan(&count)
+	var num, max, count int
 
-	var output int
+	//fmt.Println("Enter a sequence of natural numbers (end with 0):")
 
-	for i := 1; i <= count; i++ {
-		var number int
-		fmt.Scan(&number)
-		if number%8 == 0 {
-			if number > 9 && number < 100 {
-				output += number
-			}
+	for {
+		fmt.Scan(&num)
+		if num == 0 {
+			break
+		}
+		if num > max {
+			max = num
+			count = 1
+		} else if num == max {
+			count++
 		}
 	}
-	fmt.Println(output)
+
+	//fmt.Printf("The number of elements equal to the maximum (%d) is: %d\n", max, count)
+	fmt.Println(count)
 }
