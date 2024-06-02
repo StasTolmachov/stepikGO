@@ -344,24 +344,45 @@
 //	}
 //
 //}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var n int
+//
+//	for {
+//		fmt.Scan(&n)
+//
+//		if n > 100 {
+//			break
+//		}
+//
+//		if n < 10 {
+//			continue
+//		}
+//		fmt.Println(n)
+//	}
+//}
 
 package main
 
 import "fmt"
 
 func main() {
-	var n int
+	var x, p, y, years int
 
-	for {
-		fmt.Scan(&n)
+	fmt.Scan(&x) //сумма
+	fmt.Scan(&p) //процент
+	fmt.Scan(&y) //желаемая сумма
 
-		if n > 100 {
-			break
-		}
+	//result = 100 + (100 * 10 / 100)
 
-		if n < 10 {
-			continue
-		}
-		fmt.Println(n)
+	for x < y {
+		x = x + (x * p / 100)
+		years++
 	}
+	fmt.Println(years)
+
 }
