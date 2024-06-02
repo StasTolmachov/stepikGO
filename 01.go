@@ -297,31 +297,50 @@
 //	}
 //	fmt.Println(count)
 //}
+//
+//package main
+//
+//import (
+//	"fmt"
+//)
+//
+//func main() {
+//	var num, max, count int
+//
+//	//fmt.Println("Enter a sequence of natural numbers (end with 0):")
+//
+//	for {
+//		fmt.Scan(&num)
+//		if num == 0 {
+//			break
+//		}
+//		if num > max {
+//			max = num
+//			count = 1
+//		} else if num == max {
+//			count++
+//		}
+//	}
+//
+//	//fmt.Printf("The number of elements equal to the maximum (%d) is: %d\n", max, count)
+//	fmt.Println(count)
+//}
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	var num, max, count int
+	var n, c, d int
+	fmt.Scan(&n)
+	fmt.Scan(&c)
+	fmt.Scan(&d)
 
-	//fmt.Println("Enter a sequence of natural numbers (end with 0):")
-
-	for {
-		fmt.Scan(&num)
-		if num == 0 {
+	for i := 1; i <= n; i++ {
+		if i%c == 0 && i%d != 0 {
+			fmt.Println(i)
 			break
-		}
-		if num > max {
-			max = num
-			count = 1
-		} else if num == max {
-			count++
 		}
 	}
 
-	//fmt.Printf("The number of elements equal to the maximum (%d) is: %d\n", max, count)
-	fmt.Println(count)
 }
