@@ -202,32 +202,35 @@
 //	}
 //}
 
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	var input int
+
+// 	fmt.Scan(&input)
+
+// 	n1 := input%4 == 0 && input%100 != 0
+
+// 	n3 := input%400 == 0
+
+// 	if n1 || n3 {
+// 		fmt.Println("YES")
+// 	} else {
+// 		fmt.Println("NO")
+// 	}
+
+// }
+
 package main
 
 import "fmt"
 
 func main() {
-	input := 444
 
-	n1 := input%4 == 0
-	fmt.Println(n1)
-
-	n2 := input%100 == 0
-	fmt.Println(n2)
-
-	n3 := input%400 == 0
-	fmt.Println(n3)
-
-	if n1 {
-		if n2 {
-			if n3 {
-				fmt.Println("true 400")
-				return
-			}
-			fmt.Println("false 100")
-			return
-		}
-		fmt.Println("true 4")
+	for i := 1; i < 11; i++ {
+		fmt.Println(i * i)
 	}
 
 }
