@@ -201,36 +201,230 @@
 //		fmt.Println("NO")
 //	}
 //}
-
-// package main
-
-// import "fmt"
-
-// func main() {
-// 	var input int
-
-// 	fmt.Scan(&input)
-
-// 	n1 := input%4 == 0 && input%100 != 0
-
-// 	n3 := input%400 == 0
-
-// 	if n1 || n3 {
-// 		fmt.Println("YES")
-// 	} else {
-// 		fmt.Println("NO")
-// 	}
-
-// }
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	input := 444
+//
+//	n1 := input%4 == 0
+//	fmt.Println(n1)
+//
+//	n2 := input%100 == 0
+//	fmt.Println(n2)
+//
+//	n3 := input%400 == 0
+//	fmt.Println(n3)
+//
+//	if n1 {
+//		if n2 {
+//			if n3 {
+//				fmt.Println("true 400")
+//				return
+//			}
+//			fmt.Println("false 100")
+//			return
+//		}
+//		fmt.Println("true 4")
+//	}
+//
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var a, b, sum int
+//	fmt.Scan(&a, &b)
+//
+//	for i := a; i <= b; i++ {
+//		sum += i
+//	}
+//	fmt.Println(sum)
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var count int
+//	fmt.Scan(&count)
+//
+//	var output int
+//
+//	for i := 1; i <= count; i++ {
+//		var number int
+//		fmt.Scan(&number)
+//		if number%8 == 0 {
+//			if number > 9 && number < 100 {
+//				output += number
+//			}
+//		}
+//	}
+//	fmt.Println(output)
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var number, count, before int
+//	count = 0
+//	before = 1
+//	//var slice []int
+//
+//	for {
+//		fmt.Scan(&number)
+//
+//		if before == number {
+//			count++
+//		}
+//
+//		if before < number {
+//			count = 1
+//		}
+//
+//		before = number
+//
+//		if number == 0 {
+//			break
+//		}
+//	}
+//	fmt.Println(count)
+//}
+//
+//package main
+//
+//import (
+//	"fmt"
+//)
+//
+//func main() {
+//	var num, max, count int
+//
+//	//fmt.Println("Enter a sequence of natural numbers (end with 0):")
+//
+//	for {
+//		fmt.Scan(&num)
+//		if num == 0 {
+//			break
+//		}
+//		if num > max {
+//			max = num
+//			count = 1
+//		} else if num == max {
+//			count++
+//		}
+//	}
+//
+//	//fmt.Printf("The number of elements equal to the maximum (%d) is: %d\n", max, count)
+//	fmt.Println(count)
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var n, c, d int
+//	fmt.Scan(&n)
+//	fmt.Scan(&c)
+//	fmt.Scan(&d)
+//
+//	for i := 1; i <= n; i++ {
+//		if i%c == 0 && i%d != 0 {
+//			fmt.Println(i)
+//			break
+//		}
+//	}
+//
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var n int
+//
+//	for {
+//		fmt.Scan(&n)
+//
+//		if n > 100 {
+//			break
+//		}
+//
+//		if n < 10 {
+//			continue
+//		}
+//		fmt.Println(n)
+//	}
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//	var x, p, y, years int
+//
+//	fmt.Scan(&x) //сумма
+//	fmt.Scan(&p) //процент
+//	fmt.Scan(&y) //желаемая сумма
+//
+//	//result = 100 + (100 * 10 / 100)
+//
+//	for x < y {
+//		x = x + (x * p / 100)
+//		years++
+//	}
+//	fmt.Println(years)
+//
+//}
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
-	for i := 1; i < 11; i++ {
-		fmt.Println(i * i)
+	var number1, number2 int
+
+	fmt.Scan(&number1, &number2)
+
+	var digits1, digits2, result []int
+
+	for number1 > 0 {
+		digit := number1 % 10
+		digits1 = append([]int{digit}, digits1...)
+		number1 /= 10
+	}
+	for number2 > 0 {
+		digit := number2 % 10
+		digits2 = append([]int{digit}, digits2...)
+		number2 /= 10
 	}
 
+	for _, value1 := range digits1 {
+		for _, value2 := range digits2 {
+			if value1 == value2 {
+				result = append(result, value1)
+			}
+		}
+	}
+
+	for i, value := range result {
+		if i > 0 {
+			fmt.Print(" ")
+		}
+		fmt.Print(value)
+	}
+	fmt.Println()
 }
