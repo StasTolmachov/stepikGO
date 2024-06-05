@@ -386,45 +386,140 @@
 //	fmt.Println(years)
 //
 //}
+//
+//package main
+//
+//import (
+//	"fmt"
+//)
+//
+//func main() {
+//
+//	var number1, number2 int
+//
+//	fmt.Scan(&number1, &number2)
+//
+//	var digits1, digits2, result []int
+//
+//	for number1 > 0 {
+//		digit := number1 % 10
+//		digits1 = append([]int{digit}, digits1...)
+//		number1 /= 10
+//	}
+//	for number2 > 0 {
+//		digit := number2 % 10
+//		digits2 = append([]int{digit}, digits2...)
+//		number2 /= 10
+//	}
+//
+//	for _, value1 := range digits1 {
+//		for _, value2 := range digits2 {
+//			if value1 == value2 {
+//				result = append(result, value1)
+//			}
+//		}
+//	}
+//
+//	for i, value := range result {
+//		if i > 0 {
+//			fmt.Print(" ")
+//		}
+//		fmt.Print(value)
+//	}
+//	fmt.Println()
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//
+//	arr := [5]int{0, 1, 2, 3, 4}
+//	fmt.Println(arr)
+//
+//	for i := 0; i < len(arr); i++ {
+//		fmt.Println(arr[i])
+//		fmt.Println(len(arr))
+//	}
+//
+//	fmt.Println("_______________________")
+//
+//	for index, value := range arr {
+//		fmt.Println(index, value)
+//	}
+//}
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//
+//	//ввод в масив
+//	var workArray1 [10]uint8
+//	var inputArr1 uint8
+//	for i := 0; i < 10; i++ {
+//		fmt.Scan(&inputArr1)
+//		workArray1[i] = inputArr1
+//	}
+//
+//	//второй этап
+//	var arrArr [3][2]uint8
+//	for i := 0; i < 3; i++ {
+//		fmt.Scan(&arrArr[i][0], &arrArr[i][1])
+//	}
+//
+//	//замена елементов
+//	//считываем индексы замены
+//	for i, _ := range arrArr {
+//		a := arrArr[i][0]
+//		b := arrArr[i][1]
+//		//получаем значения елементов для замены
+//		v1 := workArray1[a]
+//		v2 := workArray1[b]
+//		//меняем местами значения
+//		workArray1[a] = v2
+//		workArray1[b] = v1
+//	}
+//
+//	//вывод с массива
+//	for index, _ := range workArray1 {
+//		fmt.Print(workArray1[index], " ")
+//	}
+//	fmt.Println()
+//}
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 
-	var number1, number2 int
+	// Ввод массива
+	var workArray [10]uint8
 
-	fmt.Scan(&number1, &number2)
-
-	var digits1, digits2, result []int
-
-	for number1 > 0 {
-		digit := number1 % 10
-		digits1 = append([]int{digit}, digits1...)
-		number1 /= 10
-	}
-	for number2 > 0 {
-		digit := number2 % 10
-		digits2 = append([]int{digit}, digits2...)
-		number2 /= 10
+	for i := 0; i < 10; i++ {
+		fmt.Scan(&workArray[i])
 	}
 
-	for _, value1 := range digits1 {
-		for _, value2 := range digits2 {
-			if value1 == value2 {
-				result = append(result, value1)
-			}
-		}
+	// Ввод пар индексов для замены
+	var arrArr [3][2]uint8
+	for i := 0; i < 3; i++ {
+		fmt.Scan(&arrArr[i][0], &arrArr[i][1])
 	}
 
-	for i, value := range result {
-		if i > 0 {
-			fmt.Print(" ")
-		}
-		fmt.Print(value)
+	// Замена элементов
+	for i, _ := range arrArr {
+		// Считываем индексы замены
+		a, b := arrArr[i][0], arrArr[i][1]
+		// Меняем местами значения
+		workArray[a], workArray[b] = workArray[b], workArray[a]
 	}
-	fmt.Println()
+
+	// Вывод массива
+	for index, _ := range workArray {
+		fmt.Print(workArray[index], " ")
+	}
+
 }
