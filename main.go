@@ -550,7 +550,24 @@ func pvt(v interface{}) {
 //
 //}
 
+//func main() {
+//	a := []int{1, 2, 3, 4, 5}
+//	pvt(a)
+//}
+
 func main() {
-	a := []int{1, 2, 3, 4, 5}
-	pvt(a)
+	var amount int
+	fmt.Scan(&amount)
+
+	if amount >= 4 {
+		value := make([]int, amount)
+
+		for i := 0; i < amount; i++ {
+			fmt.Scan(&value[i])
+		}
+		fmt.Println(value[3])
+	} else {
+		fmt.Println("Need to more than 4")
+	}
+
 }
