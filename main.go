@@ -555,19 +555,55 @@ func pvt(v interface{}) {
 //	pvt(a)
 //}
 
+//func main() {
+//	var amount int
+//	fmt.Scan(&amount)
+//
+//	if amount >= 4 {
+//		value := make([]int, amount)
+//
+//		for i := 0; i < amount; i++ {
+//			fmt.Scan(&value[i])
+//		}
+//		fmt.Println(value[3])
+//	} else {
+//		fmt.Println("Need to more than 4")
+//	}
+//
+//}
+
+//func main() {
+//	array := [5]int{}
+//	var a int
+//	for i := 0; i < 5; i++ {
+//		fmt.Scan(&a)
+//		array[i] = a
+//	}
+//
+//	var big int = array[0]
+//	for _, v := range array {
+//
+//		if big < v {
+//			big = v
+//		}
+//	}
+//	fmt.Println(big)
+//}
+
 func main() {
-	var amount int
-	fmt.Scan(&amount)
+	var n int
+	number, err := fmt.Scan(&n)
 
-	if amount >= 4 {
-		value := make([]int, amount)
+	fmt.Println(number, err)
 
-		for i := 0; i < amount; i++ {
-			fmt.Scan(&value[i])
-		}
-		fmt.Println(value[3])
-	} else {
-		fmt.Println("Need to more than 4")
+	arr := make([]int, n)
+
+	for i := 0; i < n; i++ {
+		fmt.Scan(&arr[i])
 	}
 
+	for i := 0; i < n; i += 2 {
+		fmt.Print(arr[i], " ")
+	}
+	fmt.Println()
 }
