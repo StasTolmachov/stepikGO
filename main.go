@@ -1,3 +1,29 @@
+package main
+
+import (
+	"fmt"
+)
+
+type TV struct {
+	Text string
+	Var  interface{}
+}
+
+// printNamedValueAndType
+func pvtt(nv TV) {
+	fmt.Println("__________________________________________________")
+	fmt.Printf("text: %s\nvalue: %v\ntype: %T\n", nv.Text, nv.Var, nv.Var)
+	fmt.Println("__________________________________________________")
+}
+
+// printValueAndType example: value: 5 type: int
+func pvt(v interface{}) {
+	fmt.Println("__________________________________________________")
+	fmt.Printf("value: %v\ntype: %T\n", v, v)
+	fmt.Println("__________________________________________________")
+
+}
+
 //package main
 //
 //import "fmt"
@@ -489,37 +515,42 @@
 //	}
 //	fmt.Println()
 //}
-
-package main
-
-import "fmt"
+//
+//package main
+//
+//import "fmt"
+//
+//func main() {
+//
+//	// Ввод массива
+//	var workArray [10]uint8
+//
+//	for i := 0; i < 10; i++ {
+//		fmt.Scan(&workArray[i])
+//	}
+//
+//	// Ввод пар индексов для замены
+//	var arrArr [3][2]uint8
+//	for i := 0; i < 3; i++ {
+//		fmt.Scan(&arrArr[i][0], &arrArr[i][1])
+//	}
+//
+//	// Замена элементов
+//	for i, _ := range arrArr {
+//		// Считываем индексы замены
+//		a, b := arrArr[i][0], arrArr[i][1]
+//		// Меняем местами значения
+//		workArray[a], workArray[b] = workArray[b], workArray[a]
+//	}
+//
+//	// Вывод массива
+//	for index, _ := range workArray {
+//		fmt.Print(workArray[index], " ")
+//	}
+//
+//}
 
 func main() {
-
-	// Ввод массива
-	var workArray [10]uint8
-
-	for i := 0; i < 10; i++ {
-		fmt.Scan(&workArray[i])
-	}
-
-	// Ввод пар индексов для замены
-	var arrArr [3][2]uint8
-	for i := 0; i < 3; i++ {
-		fmt.Scan(&arrArr[i][0], &arrArr[i][1])
-	}
-
-	// Замена элементов
-	for i, _ := range arrArr {
-		// Считываем индексы замены
-		a, b := arrArr[i][0], arrArr[i][1]
-		// Меняем местами значения
-		workArray[a], workArray[b] = workArray[b], workArray[a]
-	}
-
-	// Вывод массива
-	for index, _ := range workArray {
-		fmt.Print(workArray[index], " ")
-	}
-
+	a := []int{1, 2, 3, 4, 5}
+	pvt(a)
 }
