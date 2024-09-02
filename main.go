@@ -592,18 +592,18 @@ func pvt(v interface{}) {
 
 func main() {
 	var n int
-	number, err := fmt.Scan(&n)
-
-	fmt.Println(number, err)
+	fmt.Scan(&n)
 
 	arr := make([]int, n)
 
 	for i := 0; i < n; i++ {
 		fmt.Scan(&arr[i])
 	}
-
-	for i := 0; i < n; i += 2 {
-		fmt.Print(arr[i], " ")
+	var count int
+	for i := 0; i < n; i++ {
+		if arr[i] >= 0 {
+			count++
+		}
 	}
-	fmt.Println()
+	fmt.Println(count)
 }
